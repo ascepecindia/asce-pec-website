@@ -81,7 +81,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             <img 
               src="/ASCE-PEC.svg" 
               alt="ASCE Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </motion.div>
 
