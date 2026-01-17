@@ -6,16 +6,16 @@ export function Footer() {
 
   const footerLinks = {
     'Quick Links': [
-      { label: 'About ASCE', href: '#' },
-      { label: 'Membership', href: '#' },
-      { label: 'Events', href: '#' },
+      { label: 'About ASCE', href: '' },
+      { label: 'Membership', href: '' },
+      { label: 'Events', href: '' },
       { label: 'Resources', href: '#' },
     ],
     'Connect': [
-      { label: 'LinkedIn', href: '#' },
-      { label: 'Instagram', href: '#' },
-      { label: 'Twitter', href: '#' },
-      { label: 'YouTube', href: '#' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/asce-student-chapter-pec-chandigarh-8a4b7b220/' },
+      { label: 'Instagram', href: 'https://www.instagram.com/asce.pec/' },
+      { label: 'Facebook', href: 'https://www.facebook.com/asce.pec' },
+      { label: 'YouTube', href: 'https://www.youtube.com/@ascestudentchapterpecchand6831' },
     ],
     'Legal': [
       { label: 'Privacy Policy', href: '#' },
