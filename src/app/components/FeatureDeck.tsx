@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Calendar, Briefcase, BookOpen } from 'lucide-react';
+import { Calendar, BookOpen } from 'lucide-react';
 
 interface FeatureDeckProps {
   onNavigate: (page: string) => void;
@@ -16,12 +16,12 @@ export function FeatureDeck({ onNavigate }: FeatureDeckProps) {
       date: 'Next: Feb 15, 2026',
     },
     {
-      id: 'projects',
-      title: 'Projects',
-      description: 'Innovative solutions built by student engineers',
-      icon: Briefcase,
+      id: 'about',
+      title: 'About ASCE PEC',
+      description: 'ASCE PEC is a student chapter dedicated to promoting civil engineering excellence, hosting events, projects, and workshops for students.',
+      icon: BookOpen,
       gradient: 'from-[#00A3E0] to-[#00539B]',
-      date: 'Active: 12 Projects',
+      date: 'Established: 2022',
     },
     {
       id: 'blog',
@@ -66,7 +66,7 @@ export function FeatureDeck({ onNavigate }: FeatureDeckProps) {
                 <div className="relative h-96 rounded-3xl overflow-hidden bg-white shadow-xl">
                   {/* Gradient Background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-90`} />
-                  
+
                   {/* Blueprint Grid */}
                   <div 
                     className="absolute inset-0 opacity-10"
