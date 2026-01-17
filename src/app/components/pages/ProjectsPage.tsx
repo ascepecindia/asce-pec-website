@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Globe, BookOpen, Users, Award, ChevronDown, ArrowRight, Building2 } from 'lucide-react';

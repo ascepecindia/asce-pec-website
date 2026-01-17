@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Linkedin, Github } from 'lucide-react';

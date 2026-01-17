@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import { Hero3D } from '@/app/components/Hero3D';
 import { ImpactTicker } from '@/app/components/ImpactTicker';
 import { FeatureDeck } from '@/app/components/FeatureDeck';
