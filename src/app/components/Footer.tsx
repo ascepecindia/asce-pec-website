@@ -1,28 +1,39 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Code } from 'lucide-react';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
+  // Define links with types to distinguish between internal navigation and external URLs
   const footerLinks = {
     'Quick Links': [
-      { label: 'About ASCE', href: '' },
-      { label: 'Membership', href: '' },
-      { label: 'Events', href: '' },
-      { label: 'Resources', href: '#' },
+      { label: 'About ASCE', action: 'about', type: 'internal' },
+      { label: 'Membership', action: 'https://www.asce.org/membership', type: 'external' },
+      { label: 'Events', action: 'events', type: 'internal' },
+      { label: 'PEC Official', action: 'https://pec.ac.in', type: 'external' },
     ],
     'Connect': [
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/asce-student-chapter-pec-chandigarh-8a4b7b220/' },
-      { label: 'Instagram', href: 'https://www.instagram.com/asce.pec/' },
-      { label: 'Facebook', href: 'https://www.facebook.com/asce.pec' },
-      { label: 'YouTube', href: 'https://www.youtube.com/@ascestudentchapterpecchand6831' },
+      { label: 'LinkedIn', action: 'https://www.linkedin.com/in/asce-student-chapter-pec-chandigarh-8a4b7b220/', type: 'external' },
+      { label: 'Instagram', action: 'https://www.instagram.com/asce.pec/', type: 'external' },
+      { label: 'Facebook', action: 'https://www.facebook.com/asce.pec', type: 'external' },
+      { label: 'YouTube', action: 'https://www.youtube.com/@ascestudentchapterpecchand6831', type: 'external' },
     ],
     'Legal': [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Code of Conduct', href: '#' },
-      { label: 'Cookie Policy', href: '#' },
+      { label: 'Privacy Policy', action: '#', type: 'external' },
+      { label: 'Terms of Service', action: '#', type: 'external' },
+      { label: 'Code of Conduct', action: '#', type: 'external' },
     ],
+  };
+
+  const handleLinkClick = (link: { label: string, action: string, type: string }) => {
+    if (link.type === 'internal') {
+      onNavigate(link.action);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -78,7 +89,7 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Footer Links */}
+          {/* Dynamic Footer Links */}
           {Object.entries(footerLinks).map(([category, links], index) => (
             <motion.div
               key={category}
@@ -96,14 +107,29 @@ export function Footer() {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <motion.a
-                      href={link.href}
-                      whileHover={{ x: 5 }}
-                      className="text-white/70 hover:text-white transition-colors inline-block"
-                      style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}
-                    >
-                      {link.label}
-                    </motion.a>
+                    {link.type === 'internal' ? (
+                      // Internal Navigation Button
+                      <motion.button
+                        onClick={() => handleLinkClick(link)}
+                        whileHover={{ x: 5 }}
+                        className="text-white/70 hover:text-white transition-colors text-left"
+                        style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}
+                      >
+                        {link.label}
+                      </motion.button>
+                    ) : (
+                      // External Link Anchor
+                      <motion.a
+                        href={link.action}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        whileHover={{ x: 5 }}
+                        className="text-white/70 hover:text-white transition-colors inline-block"
+                        style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}
+                      >
+                        {link.label}
+                      </motion.a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -139,7 +165,7 @@ export function Footer() {
 
         {/* Grid Pattern */}
         <div 
-          className="absolute bottom-0 left-0 right-0 h-32 opacity-5"
+          className="absolute bottom-0 left-0 right-0 h-32 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `
               linear-gradient(to right, white 1px, transparent 1px),

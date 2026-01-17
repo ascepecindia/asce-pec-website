@@ -62,7 +62,7 @@ export default function App() {
         </motion.div>
       </AnimatePresence>
 
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }
