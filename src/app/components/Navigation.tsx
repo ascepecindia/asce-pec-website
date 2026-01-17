@@ -79,7 +79,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00A3E0] to-transparent"></div>
             
             <img 
-              src="/asce-logo.png" 
+              src="/ASCE-PEC.svg" 
               alt="ASCE Logo" 
               className="h-16 w-auto object-contain"
             />
