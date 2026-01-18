@@ -106,7 +106,7 @@ export function JoinPage() {
                   Engineering The Future: <br/> A Glimpse Inside ASCE
                 </h3>
                 <a 
-                  href="https://youtu.be/zrsGD1MJQ1w?si=zS8tf_W0x9kLw28D/" // Replace with your actual Reel URL
+                  href="https://youtu.be/D72AWmcV9Ng?si=pxQ_Lpz5igrqecUR" // Replace with your actual Reel URL
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105"
@@ -118,7 +118,7 @@ export function JoinPage() {
             
             {/* Background Image/Thumbnail */}
             <img 
-              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1920&auto=format&fit=crop" 
+              src="https://i.ytimg.com/vi/D72AWmcV9Ng/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBv_TtLU_d-DA2tkqc_jnDSMRSU-w" 
               alt="Viral Video Thumbnail" 
               className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[1.5s]"
             />
