@@ -2,7 +2,7 @@ export type EventItem = {
   id: string;
   title: string;
   date: string;
-  category: "Flagship" | "Workshop" | "Lecture" | "Visit" | "Competition" | "Exhibition" | "Conference" | "Cultural";
+  category: "Flagship" | "Workshop" | "Lecture" | "Visit" | "Competition" | "Exhibition" | "Conference" | "Cultural" | "Cultural X Techno";
   description: string;
   image: string;
   link?: string;
@@ -44,9 +44,8 @@ export const eventHistory: Record<string, EventItem[]> = {
         "/pecfest257.jpeg",
         "/pecfest258.jpeg"
       ]
-    }
+    }, // <--- THIS COMMA WAS MISSING
     {
-      // NEW EVENT: Orientation Drive
       id: "orientation-25",
       title: "Orientation Drive 2025",
       date: "August 2025",
@@ -66,7 +65,6 @@ export const eventHistory: Record<string, EventItem[]> = {
         "/orientation10.jpeg"
       ]
     },
-
     {
       id: "rec-25",
       title: "Reconnaissance 2025",
@@ -82,7 +80,6 @@ export const eventHistory: Record<string, EventItem[]> = {
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3080-400x300.jpg",
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3065-400x300.jpg",
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3075-400x300.jpg"
-
       ]
     },
     {
@@ -100,10 +97,8 @@ export const eventHistory: Record<string, EventItem[]> = {
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1739206879341-600x400.jpg",
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1739206855411-600x450.jpg",
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740634878095-600x400.jpg"
-
       ]
-    },
-    
+    }
   ],
   "2024": [
     {
