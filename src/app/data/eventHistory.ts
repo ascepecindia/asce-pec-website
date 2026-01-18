@@ -12,6 +12,62 @@ export type EventItem = {
 export const eventHistory: Record<string, EventItem[]> = {
   "2025": [
     {
+      id: "bullseye-25",
+      title: "Placement Session & MBA Scholarship Test",
+      date: "January 19, 2025",
+      category: "Workshop",
+      description: "Exclusive guidance session by Hitbullseye for CAT/GRE prep and placement strategies, featuring a scholarship test.",
+      image: "/MBACAT1.jpeg",
+      link: "/events/bullseye-25",
+      gallery: [
+        "/MBACAT2.jpeg",
+        "/MBACAT3.jpeg",
+        "/MBACAT4.jpeg",
+        "/MBACAT5.jpeg"
+      ]
+    },
+    {
+      id: "pecfest-25",
+      title: "PECFEST 2025: A Crescent Mirage",
+      date: "Nov 21-23, 2025",
+      category: "Cultural X Techno",
+      description: "North India's largest Techno-Cultural fest featuring The Yellow Diary, Nucleya, and a massive Defence Expo.",
+      image: "/pecfest255.jpeg",
+      link: "/events/pecfest-25",
+      gallery: [
+        "/pecfest251.jpeg",
+        "/pecfest252.jpeg",
+        "/pecfest253.jpeg",
+        "/pecfest254.jpeg",
+        "/pecfest255.jpeg",
+        "/pecfest256.jpeg",
+        "/pecfest257.jpeg",
+        "/pecfest258.jpeg"
+      ]
+    }
+    {
+      // NEW EVENT: Orientation Drive
+      id: "orientation-25",
+      title: "Orientation Drive 2025",
+      date: "August 2025",
+      category: "Exhibition",
+      description: "Welcoming the new batch with a showcase of civil engineering models, the concrete canoe, and interactive sessions.",
+      image: "/orientation1.jpeg",
+      link: "/events/orientation-25",
+      gallery: [
+        "/orientation2.jpeg",
+        "/orientation3.jpeg",
+        "/orientation4.jpeg",
+        "/orientation5.jpeg",
+        "/orientation6.jpeg",
+        "/orientation7.jpeg",
+        "/orientation8.jpeg",
+        "/orientation9.jpeg",
+        "/orientation10.jpeg"
+      ]
+    },
+
+    {
       id: "rec-25",
       title: "Reconnaissance 2025",
       date: "April 21-23, 2025",
@@ -47,35 +103,7 @@ export const eventHistory: Record<string, EventItem[]> = {
 
       ]
     },
-    {
-      id: "bullseye-25",
-      title: "Placement Session & MBA Scholarship Test",
-      date: "January 19, 2025",
-      category: "Workshop",
-      description: "Exclusive guidance session by Hitbullseye for CAT/GRE prep and placement strategies, featuring a scholarship test.",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000",
-      link: "/events/bullseye-25",
-      gallery: [
-        "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800"
-      ]
-    },
-    {
-      id: "pecfest-25",
-      title: "PECFEST 2025: A Crescent Mirage",
-      date: "Nov 21-23, 2025",
-      category: "Cultural",
-      description: "North India's largest Techno-Cultural fest featuring The Yellow Diary, Nucleya, and a massive Defence Expo.",
-      image: "https://pec.ac.in/sites/default/files/styles/large/public/events/pecfest-2025-banner.jpg",
-      link: "/events/pecfest-25",
-      gallery: [
-        "https://images.unsplash.com/photo-1459749411177-0473ef71607b?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800"
-      ]
-    }
+    
   ],
   "2024": [
     {
