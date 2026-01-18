@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, Clock, User, Calendar, Share2 } from 'lucide-react';
+import { ArrowLeft, Clock, User, Calendar, Share2, Linkedin, Twitter } from 'lucide-react';
 import { blogsData } from '../../data/blogsData';
 import { SEO } from '../SEO';
 
@@ -13,15 +13,14 @@ export function BlogDetailsPage({ blogId, onNavigate }: Props) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
-  if (!blog) return <div className="pt-32 text-center text-white">Access Denied: Intel Not Found</div>;
+  if (!blog) return <div className="pt-32 text-center text-[#00539B]">Article not found</div>;
 
   return (
     <>
-      {/* DYNAMIC SEO FOR EACH BLOG */}
       <SEO title={blog.title} description={blog.excerpt} />
 
       <article className="min-h-screen bg-white pb-20">
-        {/* Reading Progress Bar */}
+        {/* Progress Bar */}
         <motion.div 
           className="fixed top-0 left-0 right-0 h-1 bg-[#00A3E0] origin-left z-50"
           style={{ scaleX: useScroll().scrollYProgress }} 
@@ -55,7 +54,7 @@ export function BlogDetailsPage({ blogId, onNavigate }: Props) {
                 ))}
               </div>
 
-              <h1 className="text-3xl md:text-6xl font-black mb-6 leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                 {blog.title}
               </h1>
 
@@ -74,9 +73,11 @@ export function BlogDetailsPage({ blogId, onNavigate }: Props) {
              <p className="text-xl font-serif leading-relaxed text-slate-600 italic border-l-4 border-[#00A3E0] pl-4">
                {blog.excerpt}
              </p>
-             <button className="p-3 rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-[#00539B]">
-               <Share2 className="w-5 h-5" />
-             </button>
+             <div className="flex gap-2">
+                <button className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-[#00539B] transition-colors">
+                  <Share2 className="w-5 h-5" />
+                </button>
+             </div>
           </div>
 
           <motion.div
@@ -92,7 +93,7 @@ export function BlogDetailsPage({ blogId, onNavigate }: Props) {
           
           <div className="bg-[#F5F7FA] p-8 rounded-2xl text-center">
             <h3 className="font-bold text-[#00539B] mb-2">Join the Discussion</h3>
-            <p className="text-sm text-slate-500 mb-6">Have insights on this topic? Connect with us on LinkedIn.</p>
+            <p className="text-sm text-slate-500 mb-6">Have insights on this topic? Connect with us.</p>
             <button 
               onClick={() => onNavigate('contact')}
               className="bg-[#00539B] text-white px-8 py-3 rounded-full font-bold hover:bg-[#003d73] transition-colors"
