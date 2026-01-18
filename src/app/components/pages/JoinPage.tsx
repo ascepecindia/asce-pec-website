@@ -376,7 +376,7 @@ export function JoinPage() {
               Email Us
             </h3>
             <p style={{ fontFamily: 'Inter, sans-serif', color: '#00539B', opacity: 0.7 }}>
-              contact@ascepec.org
+             asce.pec.india@gmail.com
             </p>
           </div>
 

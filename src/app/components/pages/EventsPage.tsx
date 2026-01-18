@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar as CalendarIcon, Clock, MapPin, Users, X, History, Activity, ChevronRight, Archive, ExternalLink } from 'lucide-react';

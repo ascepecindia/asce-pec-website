@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import React from "react";
 
 export default function Header() {

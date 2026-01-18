@@ -1,3 +1,4 @@
+import { SEO } from '../SEO';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Search, Clock, TrendingUp } from 'lucide-react';

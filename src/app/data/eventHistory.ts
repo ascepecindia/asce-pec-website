@@ -1,17 +1,90 @@
-// src/app/data/eventHistory.ts
-
 export type EventItem = {
   id: string;
   title: string;
   date: string;
-  category: "Flagship" | "Workshop" | "Lecture" | "Visit" | "Competition" | "Exhibition";
+  // Added 'Cultural' and 'Conference' for the new events
+  category: "Flagship" | "Workshop" | "Lecture" | "Visit" | "Competition" | "Exhibition" | "Conference" | "Cultural";
   description: string;
   image: string; 
-  link?: string; // <--- ADDED: Optional link property
+  link?: string;
+  // NEW: Added gallery support for the detail pages
+  gallery?: string[]; 
 };
 
 export const eventHistory: Record<string, EventItem[]> = {
-  "2024": [
+  "2025": [
+    {
+      id: "rec-25",
+      title: "Reconnaissance 2025",
+      date: "April 21-23, 2025",
+      category: "Flagship",
+      description: "The annual technical fest hosted by ASCE PEC. Featuring 'Concrete Frisbee', 'Bridge It', and the 'Autocad Challenge'.",
+      image: "https://pec.ac.in/sites/default/files/events/reconnaissance-2025-cover.jpg", 
+      link: "/events/rec-25",
+      gallery: [
+        "https://images.unsplash.com/photo-1581094794329-cd1096d9a5b5?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1517089152318-42ec560349c0?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800"
+      ]
+    },
+    {
+      id: "cissc-25",
+      title: "CISSC 2025: Sustainable Smart Cities",
+      date: "Feb 7-9, 2025",
+      category: "Conference",
+      description: "ASCE International Conference on Challenges and Innovations for Sustainable Smart Cities, held at Hotel Novotel.",
+      image: "https://pec.ac.in/sites/default/files/events/cissc-2025-group.jpg",
+      link: "/events/cissc-25",
+      gallery: [
+        "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800"
+      ]
+    },
+    {
+      id: "bullseye-25",
+      title: "Placement Session & MBA Scholarship Test",
+      date: "January 19, 2025",
+      category: "Workshop",
+      description: "Exclusive guidance session by Hitbullseye for CAT/GRE prep and placement strategies, featuring a scholarship test.",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000",
+      link: "/events/bullseye-25",
+      gallery: [
+        "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800"
+      ]
+    },
+    {
+      id: "pecfest-25",
+      title: "PECFEST 2025: A Crescent Mirage",
+      date: "Nov 21-23, 2025",
+      category: "Cultural",
+      description: "North India's largest Techno-Cultural fest featuring The Yellow Diary, Nucleya, and a massive Defence Expo.",
+      image: "https://pec.ac.in/sites/default/files/styles/large/public/events/pecfest-2025-banner.jpg",
+      link: "/events/pecfest-25",
+      gallery: [
+        "https://images.unsplash.com/photo-1459749411177-0473ef71607b?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800"
+      ]
+    },
+    {
+      id: "pecfest-25",
+      title: "PECFEST 2025: A Crescent Mirage",
+      date: "Nov 21-23, 2025",
+      category: "Cultural",
+      description: "North India's largest Techno-Cultural fest featuring The Yellow Diary, Nucleya, and a massive Defence Expo.",
+      image: "https://pec.ac.in/sites/default/files/styles/large/public/events/pecfest-2025-banner.jpg",
+      link: "/events/pecfest-25",
+      gallery: [
+        "https://images.unsplash.com/photo-1459749411177-0473ef71607b?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800"
+      ]
+    },
     {
       id: "rec-24",
       title: "Reconnaissance 2024",
