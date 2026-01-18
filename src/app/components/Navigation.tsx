@@ -1,4 +1,4 @@
-import { Home, Calendar, Info, Users, BookOpen, Mail } from 'lucide-react';
+import { Home, Calendar, Info, Users, BookOpen, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface NavigationProps {
@@ -10,14 +10,14 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
   const leftItems = [
     { id: 'home', icon: Home, label: 'Home' },
     { id: 'events', icon: Calendar, label: 'Events' },
-    // CHANGED: Projects -> About
     { id: 'about', icon: Info, label: 'About' },
   ];
 
   const rightItems = [
     { id: 'team', icon: Users, label: 'Team' },
     { id: 'blog', icon: BookOpen, label: 'Blog' },
-    { id: 'join', icon: Mail, label: 'Join' },
+    // --- CHANGED: Join -> Contact ---
+    { id: 'contact', icon: Phone, label: 'Contact' },
   ];
 
   const skylineEntrance = {
@@ -104,7 +104,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
         </div>
       </motion.header>
 
-      {/* --- MOBILE NAV (Unchanged) --- */}
+      {/* --- MOBILE NAV --- */}
       <motion.nav
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

@@ -6,7 +6,7 @@ import { EventsPage } from './components/pages/EventsPage';
 import { ProjectsPage as AboutPage } from './components/pages/ProjectsPage'; 
 import { TeamPage } from './components/pages/TeamPage';
 import { BlogPage } from './components/pages/BlogPage';
-import { JoinPage } from './components/pages/JoinPage';
+import { JoinPage } from './components/pages/JoinPage'; // This is now your Contact page
 
 // --- NEW IMPORTS ---
 import { EventDetailsPage } from './components/pages/EventDetailsPage';
@@ -46,7 +46,8 @@ export default function App() {
       }
 
       // 3. Normal Pages
-      const validPages = ['home', 'events', 'about', 'team', 'blog', 'join'];
+      // CHANGED: Replaced 'join' with 'contact'
+      const validPages = ['home', 'events', 'about', 'team', 'blog', 'contact'];
       if (validPages.includes(path)) {
         setCurrentPage(path);
       }
@@ -91,7 +92,7 @@ export default function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home': return <HomePage onNavigate={handleNavigate} />;
-      case 'events': return <EventsPage />;
+      case 'events': return <EventsPage onNavigate={handleNavigate} />; // Pass onNavigate here
       
       // --- NEW PAGES ---
       case 'event-details': 
@@ -103,7 +104,10 @@ export default function App() {
       case 'about': return <AboutPage />; 
       case 'team': return <TeamPage />;
       case 'blog': return <BlogPage />;
-      case 'join': return <JoinPage />;
+      
+      // CHANGED: 'join' -> 'contact'
+      case 'contact': return <JoinPage />; 
+      
       default: return <HomePage onNavigate={handleNavigate} />;
     }
   };
