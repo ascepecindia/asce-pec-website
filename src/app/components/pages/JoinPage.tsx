@@ -106,7 +106,7 @@ export function JoinPage() {
                   Engineering The Future: <br/> A Glimpse Inside ASCE
                 </h3>
                 <a 
-                  href="https://www.instagram.com/reel/C3sX_Y3P_qL/" // Replace with your actual Reel URL
+                  href="https://youtu.be/zrsGD1MJQ1w?si=zS8tf_W0x9kLw28D/" // Replace with your actual Reel URL
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105"
