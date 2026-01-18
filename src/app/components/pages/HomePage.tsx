@@ -1,5 +1,5 @@
 import { SEO } from '../SEO';
-import { Hero3D } from '../Hero3D'; // Check your import paths (might be ../Hero3D or ./components/Hero3D)
+import { Hero3D } from '../Hero3D'; 
 import { ImpactTicker } from '../ImpactTicker';
 import { FeatureDeck } from '../FeatureDeck';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
@@ -99,12 +99,25 @@ function FlyerShowcase() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              <ExternalLink className="w-5 h-5" href='https://docs.google.com/forms/d/e/1FAIpQLSc4w3D1GjEo42Qvu36ttg7l81QPmVt6nHBi0PXK1ys1lA1UiQ/viewform?usp=header' /> Register Now
-            </button>
-            <button className="flex items-center gap-2 px-8 py-4 rounded-full font-bold border border-white/20 text-white hover:bg-white/10 transition-all">
-              <Download className="w-5 h-5" href='https://drive.google.com/file/d/1_Jedn0c4YmL98c0XqWfswGNiVX1Ghu01/view?usp=sharing' /> Download Flyer
-            </button>
+            {/* FIXED: Changed <button> to <a> and moved href here */}
+            <a 
+              href='https://docs.google.com/forms/d/e/1FAIpQLSc4w3D1GjEo42Qvu36ttg7l81QPmVt6nHBi0PXK1ys1lA1UiQ/viewform?usp=header'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+            >
+              <ExternalLink className="w-5 h-5" /> Register Now
+            </a>
+
+            {/* FIXED: Changed <button> to <a> and moved href here */}
+            <a 
+              href='https://drive.google.com/file/d/1_Jedn0c4YmL98c0XqWfswGNiVX1Ghu01/view?usp=sharing'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-8 py-4 rounded-full font-bold border border-white/20 text-white hover:bg-white/10 transition-all"
+            >
+              <Download className="w-5 h-5" /> Download Flyer
+            </a>
           </div>
         </motion.div>
 
@@ -126,7 +139,6 @@ function FlyerShowcase() {
               className="absolute inset-0 rounded-xl overflow-hidden shadow-2xl border-4 border-[#00539B]/30 bg-[#111]"
               style={{ transform: "translateZ(50px)" }}
             >
-              {/* REPLACE '/flyer.jpg' WITH YOUR ACTUAL FLYER IMAGE PATH */}
               <img 
                 src="/flyer.png" 
                 alt="ASCE Symposium Flyer 2026" 
