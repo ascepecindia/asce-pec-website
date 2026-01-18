@@ -2,13 +2,11 @@ export type EventItem = {
   id: string;
   title: string;
   date: string;
-  // Added 'Cultural' and 'Conference' for the new events
   category: "Flagship" | "Workshop" | "Lecture" | "Visit" | "Competition" | "Exhibition" | "Conference" | "Cultural";
   description: string;
-  image: string; 
+  image: string;
   link?: string;
-  // NEW: Added gallery support for the detail pages
-  gallery?: string[]; 
+  gallery?: string[];
 };
 
 export const eventHistory: Record<string, EventItem[]> = {
@@ -19,7 +17,7 @@ export const eventHistory: Record<string, EventItem[]> = {
       date: "April 21-23, 2025",
       category: "Flagship",
       description: "The annual technical fest hosted by ASCE PEC. Featuring 'Concrete Frisbee', 'Bridge It', and the 'Autocad Challenge'.",
-      image: "https://pec.ac.in/sites/default/files/events/reconnaissance-2025-cover.jpg", 
+      image: "https://pec.ac.in/sites/default/files/events/reconnaissance-2025-cover.jpg",
       link: "/events/rec-25",
       gallery: [
         "https://images.unsplash.com/photo-1581094794329-cd1096d9a5b5?auto=format&fit=crop&w=800",
@@ -69,22 +67,9 @@ export const eventHistory: Record<string, EventItem[]> = {
         "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800",
         "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800"
       ]
-    },
-    {
-      id: "pecfest-25",
-      title: "PECFEST 2025: A Crescent Mirage",
-      date: "Nov 21-23, 2025",
-      category: "Cultural",
-      description: "North India's largest Techno-Cultural fest featuring The Yellow Diary, Nucleya, and a massive Defence Expo.",
-      image: "https://pec.ac.in/sites/default/files/styles/large/public/events/pecfest-2025-banner.jpg",
-      link: "/events/pecfest-25",
-      gallery: [
-        "https://images.unsplash.com/photo-1459749411177-0473ef71607b?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800"
-      ]
-    },
+    }
+  ],
+  "2024": [
     {
       id: "rec-24",
       title: "Reconnaissance 2024",
