@@ -100,10 +100,10 @@ function FlyerShowcase() {
 
           <div className="flex flex-wrap gap-4">
             <button className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              <ExternalLink className="w-5 h-5" /> Register Now
+              <ExternalLink className="w-5 h-5" href='https://docs.google.com/forms/d/e/1FAIpQLSc4w3D1GjEo42Qvu36ttg7l81QPmVt6nHBi0PXK1ys1lA1UiQ/viewform?usp=header' /> Register Now
             </button>
             <button className="flex items-center gap-2 px-8 py-4 rounded-full font-bold border border-white/20 text-white hover:bg-white/10 transition-all">
-              <Download className="w-5 h-5" /> Download Flyer
+              <Download className="w-5 h-5" href='https://drive.google.com/file/d/1_Jedn0c4YmL98c0XqWfswGNiVX1Ghu01/view?usp=sharing' /> Download Flyer
             </button>
           </div>
         </motion.div>

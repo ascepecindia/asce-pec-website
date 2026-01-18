@@ -213,7 +213,7 @@ export function EventsPage({ onNavigate }: EventsPageProps) {
                       </button>
                     ) : (
                       <a 
-                        href={event.link} 
+                        href="https://forms.gle/1Xy2zZNaLJbkSjpb8" 
                         target="_blank" 
                         rel="noreferrer"
                         className="block w-full py-3 bg-[#00539B] text-white rounded-lg text-center text-sm font-bold shadow-lg shadow-[#00539B]/20 hover:bg-[#003d73] hover:translate-y-[-2px] transition-all"
