@@ -11,28 +11,28 @@ const socialStats = [
     handle: '@asce.pec', 
     link: 'https://www.instagram.com/asce.pec/',
     color: 'from-pink-600 via-red-500 to-orange-500',
-    followers: '2.1K+',
-    subtext: 'Active Community'
+    followers: '35K+',
+    subtext: 'Active Reach'
   },
   { 
     id: 'linkedin', 
     icon: Linkedin, 
     label: 'LinkedIn', 
     handle: 'ASCE PEC Chapter', 
-    link: 'https://www.linkedin.com/company/asce-pec/',
+    link: 'https://www.linkedin.com/in/asce-student-chapter-pec-chandigarh-8a4b7b220/',
     color: 'from-blue-700 to-blue-900',
     followers: '1.5K+',
-    subtext: 'Professional Network'
+    subtext: 'Professional Reach'
   },
   { 
     id: 'youtube', 
     icon: Youtube, 
     label: 'YouTube', 
     handle: 'ASCE PEC', 
-    link: 'https://www.youtube.com/@ascepec',
+    link: 'https://www.youtube.com/@ascestudentchapterpecchand6831',
     color: 'from-red-600 to-red-800',
-    followers: '500+',
-    subtext: 'Educational Archives'
+    followers: '200+',
+    subtext: 'Subscribers'
   }
 ];
 
