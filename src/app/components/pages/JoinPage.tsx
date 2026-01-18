@@ -1,7 +1,6 @@
 import { SEO } from '../SEO';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, Instagram, Linkedin, Youtube, Play, ExternalLink, Globe } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Play, ExternalLink, ArrowRight } from 'lucide-react';
 
 // --- DATA ---
 const socialStats = [
@@ -10,31 +9,34 @@ const socialStats = [
     icon: Instagram, 
     label: 'Instagram', 
     handle: '@asce.pec', 
-    link: 'https://instagram.com/asce.pec',
-    color: 'from-pink-500 to-orange-500',
-    followers: '2.5K+' 
+    link: 'https://www.instagram.com/asce.pec/',
+    color: 'from-pink-600 via-red-500 to-orange-500',
+    followers: '2.1K+',
+    subtext: 'Active Community'
   },
   { 
     id: 'linkedin', 
     icon: Linkedin, 
     label: 'LinkedIn', 
     handle: 'ASCE PEC Chapter', 
-    link: 'https://linkedin.com',
-    color: 'from-blue-600 to-blue-800',
-    followers: '1.2K+' 
+    link: 'https://www.linkedin.com/company/asce-pec/',
+    color: 'from-blue-700 to-blue-900',
+    followers: '1.5K+',
+    subtext: 'Professional Network'
   },
   { 
     id: 'youtube', 
     icon: Youtube, 
     label: 'YouTube', 
-    handle: 'ASCE PEC Media', 
-    link: 'https://youtube.com',
+    handle: 'ASCE PEC', 
+    link: 'https://www.youtube.com/@ascepec',
     color: 'from-red-600 to-red-800',
-    followers: '500+' 
+    followers: '500+',
+    subtext: 'Educational Archives'
   }
 ];
 
-// --- UPDATED SPONSOR LIST WITH LOGOS ---
+// --- SPONSOR LIST ---
 const sponsors = [
   { name: "Tata Tiscon", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_Tiscon_Logo.png" },
   { name: "UltraTech", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/UltraTech_Cement_Logo.svg/1200px-UltraTech_Cement_Logo.svg.png" },
@@ -52,206 +54,129 @@ const sponsors = [
   { name: "GMI Infra", logo: "https://www.gmiinfra.com/assets/img/logo.png" },
   { name: "City Woofer", logo: "https://www.citywoofer.com/images/logo.png" },
   { name: "Horizon Belmond", logo: "https://reconsultadvisory.com/wp-content/uploads/2023/05/Horizon-Belmond-Mohali-Logo.png" },
-  // Text fallbacks for local brands if logos aren't public
   { name: "Rakhra Associates", logo: "" }, 
   { name: "EVCA", logo: "" },
   { name: "CIZ Plus", logo: "" }
 ];
 
 export function JoinPage() {
-  const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => { setIsSubmitted(false); setFormState({ name: '', email: '', subject: '', message: '' }) }, 3000);
-  };
-
   return (
     <div className="min-h-screen pt-24 pb-0 bg-[#F5F7FA] overflow-x-hidden">
-      <SEO title="Contact & Connect" description="Get in touch with ASCE PEC. Connect via social media or send us a message." />
+      <SEO title="Connect" description="Join the ASCE PEC network. Follow us on Instagram, LinkedIn and YouTube." />
 
-      <div className="max-w-7xl mx-auto px-4 mb-20">
+      <div className="max-w-5xl mx-auto px-4 mb-24">
         
         {/* --- HERO HEADER --- */}
         <div className="text-center mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black text-[#00539B] mb-4"
+            className="text-6xl md:text-8xl font-black text-[#00539B] mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            ESTABLISH COMMS
+            THE NETWORK
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-[#00539B]/70"
+            className="text-2xl text-[#00539B]/60 font-light"
           >
-            Connect with the Corps. Expand the Network.
+            Stay synchronized with the Corps.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="space-y-16">
           
-          {/* --- LEFT COL: VIRAL VIDEO & SOCIALS --- */}
-          <div className="space-y-8">
-            
-            {/* Viral Video Panel */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="bg-black rounded-3xl overflow-hidden shadow-2xl relative group aspect-video border-4 border-white"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 flex flex-col justify-end p-6">
-                <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded w-fit mb-2 animate-pulse">LIVE FEED</span>
-                <h3 className="text-white text-2xl font-bold font-sans">ASCE PEC: Year in Review</h3>
-                <p className="text-white/80 text-sm">Experience the engineering marvels and campus energy.</p>
-              </div>
-              
-              <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 cursor-pointer hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-white fill-white" />
+          {/* --- VIRAL VIDEO PANEL --- */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="relative w-full aspect-video md:aspect-[21/9] bg-black rounded-3xl overflow-hidden shadow-2xl border-4 border-white group"
+          >
+            {/* Overlay Content */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 flex flex-col justify-end p-8 md:p-12">
+              <div className="max-w-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">TRENDING NOW</span>
+                  <span className="text-white/60 text-sm font-mono">PEC CAMPUS • 2025</span>
                 </div>
-              </div>
-
-              <img 
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000" 
-                alt="Viral Video Thumbnail" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </motion.div>
-
-            {/* Social Command Center */}
-            <div className="grid gap-4">
-              {socialStats.map((social, idx) => (
-                <motion.a
-                  key={social.id}
-                  href={social.link}
-                  target="_blank"
+                <h3 className="text-white text-3xl md:text-5xl font-bold font-sans mb-4 leading-tight">
+                  Engineering The Future: <br/> A Glimpse Inside ASCE
+                </h3>
+                <a 
+                  href="https://www.instagram.com/reel/C3sX_Y3P_qL/" // Replace with your actual Reel URL
+                  target="_blank" 
                   rel="noreferrer"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + (idx * 0.1) }}
-                  className="bg-white p-4 rounded-2xl shadow-md border border-[#00539B]/10 flex items-center gap-4 group hover:shadow-lg transition-all relative overflow-hidden"
+                  className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-[#00A3E0] hover:text-white transition-all transform hover:scale-105"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center text-white z-10 group-hover:scale-110 transition-transform`}>
-                    <social.icon className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1 z-10 group-hover:text-white transition-colors">
-                    <h4 className="font-bold text-lg leading-none">{social.label}</h4>
-                    <p className="text-sm opacity-70 font-mono">{social.handle}</p>
-                  </div>
-                  <div className="text-right z-10 group-hover:text-white">
-                    <span className="block font-bold text-xl">{social.followers}</span>
-                    <span className="text-xs opacity-70">Subscribers</span>
-                  </div>
-                  <ExternalLink className="w-5 h-5 text-[#00539B]/30 z-10 group-hover:text-white/50" />
-                </motion.a>
-              ))}
+                  <Play className="w-5 h-5 fill-current" /> Watch Full Reel
+                </a>
+              </div>
             </div>
+            
+            {/* Background Image/Thumbnail */}
+            <img 
+              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1920&auto=format&fit=crop" 
+              alt="Viral Video Thumbnail" 
+              className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[1.5s]"
+            />
+          </motion.div>
+
+          {/* --- SOCIAL COMMAND CENTER --- */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {socialStats.map((social, idx) => (
+              <motion.a
+                key={social.id}
+                href={social.link}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + (idx * 0.1) }}
+                className="bg-white p-8 rounded-3xl shadow-lg border border-[#00539B]/10 flex flex-col items-center text-center gap-6 group hover:shadow-2xl transition-all relative overflow-hidden"
+              >
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                {/* Icon */}
+                <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center text-white z-10 group-hover:bg-white group-hover:text-black transition-colors shadow-xl`}>
+                  <social.icon className="w-10 h-10" />
+                </div>
+                
+                <div className="z-10 group-hover:text-white transition-colors">
+                  <h4 className="font-bold text-2xl mb-1">{social.label}</h4>
+                  <p className="text-sm opacity-60 group-hover:opacity-80 font-mono">{social.handle}</p>
+                </div>
+
+                <div className="z-10 group-hover:text-white mt-auto">
+                  <span className="block font-black text-4xl mb-1 tracking-tight">{social.followers}</span>
+                  <span className="text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-90">{social.subtext}</span>
+                </div>
+                
+                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                  <ExternalLink className="w-6 h-6 text-white" />
+                </div>
+              </motion.a>
+            ))}
           </div>
 
-          {/* --- RIGHT COL: CONTACT FORM --- */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#00539B]/10 relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A3E0]/10 rounded-full blur-3xl pointer-events-none" />
+          {/* --- EMAIL CTA --- */}
+          <div className="text-center">
+             <p className="text-[#00539B]/50 font-mono text-sm mb-4">OFFICIAL CORRESPONDENCE</p>
+             <a href="mailto:asce.pec.india@gmail.com" className="text-2xl md:text-4xl font-bold text-[#00539B] hover:text-[#00A3E0] transition-colors flex items-center justify-center gap-3">
+               asce.pec.india@gmail.com <ArrowRight className="w-8 h-8" />
+             </a>
+          </div>
 
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-[#00539B] mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Direct Line</h2>
-              <p className="text-[#00539B]/60">Have a query? Drop us a message directly.</p>
-            </div>
-
-            {isSubmitted ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} 
-                animate={{ opacity: 1, scale: 1 }}
-                className="h-64 flex flex-col items-center justify-center text-center bg-green-50 rounded-2xl border border-green-100"
-              >
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-green-200">
-                  <Send className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-green-800">Message Sent!</h3>
-                <p className="text-green-600">We will respond within 24 hours.</p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-[#00539B]">Name</label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={formState.name}
-                      onChange={e => setFormState({...formState, name: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-[#F5F7FA] border-2 border-transparent focus:border-[#00A3E0] focus:bg-white outline-none transition-all"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-[#00539B]">Email</label>
-                    <input 
-                      type="email" 
-                      required 
-                      value={formState.email}
-                      onChange={e => setFormState({...formState, email: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-[#F5F7FA] border-2 border-transparent focus:border-[#00A3E0] focus:bg-white outline-none transition-all"
-                      placeholder="john@pec.edu.in"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-[#00539B]">Subject</label>
-                  <select 
-                    className="w-full px-4 py-3 rounded-lg bg-[#F5F7FA] border-2 border-transparent focus:border-[#00A3E0] focus:bg-white outline-none transition-all text-[#00539B]"
-                    value={formState.subject}
-                    onChange={e => setFormState({...formState, subject: e.target.value})}
-                  >
-                    <option>General Inquiry</option>
-                    <option>Sponsorship Opportunity</option>
-                    <option>Event Registration Issue</option>
-                    <option>Membership Query</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-[#00539B]">Message</label>
-                  <textarea 
-                    rows={4} 
-                    required 
-                    value={formState.message}
-                    onChange={e => setFormState({...formState, message: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-[#F5F7FA] border-2 border-transparent focus:border-[#00A3E0] focus:bg-white outline-none transition-all resize-none"
-                    placeholder="How can we help you?"
-                  />
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="w-full py-4 bg-[#00539B] text-white font-bold rounded-xl hover:bg-[#003d73] transition-colors shadow-lg shadow-[#00539B]/30 flex items-center justify-center gap-2 group"
-                >
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" /> 
-                  Transmit Message
-                </button>
-              </form>
-            )}
-          </motion.div>
         </div>
       </div>
 
       {/* --- SPONSORS TICKER SECTION --- */}
-      <div className="bg-white border-y border-[#00539B]/10 py-12 overflow-hidden">
-        <div className="text-center mb-8">
-          <h3 className="text-sm font-bold tracking-widest text-[#00539B]/40 uppercase">Our Past Alliances & Sponsors</h3>
+      <div className="bg-white border-y border-[#00539B]/10 py-16 overflow-hidden">
+        <div className="text-center mb-10">
+          <h3 className="text-sm font-bold tracking-[0.2em] text-[#00539B]/40 uppercase">Powered By Industry Leaders</h3>
         </div>
         
         <div className="relative flex overflow-x-hidden group">
@@ -261,17 +186,16 @@ export function JoinPage() {
           {/* The Scrolling Marquee */}
           <div className="flex animate-marquee whitespace-nowrap items-center">
             {[...sponsors, ...sponsors].map((sponsor, index) => (
-              <div key={index} className="mx-8 md:mx-12 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group shrink-0">
+              <div key={index} className="mx-8 md:mx-12 opacity-50 hover:opacity-100 transition-opacity cursor-pointer group shrink-0">
                 <img 
                   src={sponsor.logo} 
                   alt={sponsor.name} 
-                  className="h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="h-16 md:h-20 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none'; 
                     e.currentTarget.nextElementSibling?.classList.remove('hidden'); 
                   }}
                 />
-                {/* Text Backup if image fails */}
                 <span className="hidden text-xl font-bold text-slate-400 font-sans">
                   {sponsor.name}
                 </span>
