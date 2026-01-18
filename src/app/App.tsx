@@ -7,70 +7,104 @@ import { ProjectsPage as AboutPage } from './components/pages/ProjectsPage';
 import { TeamPage } from './components/pages/TeamPage';
 import { BlogPage } from './components/pages/BlogPage';
 import { JoinPage } from './components/pages/JoinPage';
+
+// --- NEW IMPORTS ---
+import { EventDetailsPage } from './components/pages/EventDetailsPage';
+import { EventGalleryPage } from './components/pages/EventGalleryPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function App() {
-  // Initialize state based on the current URL, default to 'home'
   const [currentPage, setCurrentPage] = useState('home');
+  // Store the ID of the specific event being viewed (e.g., 'rec-25')
+  const [currentEventId, setCurrentEventId] = useState<string>('');
 
-  // --- ROUTING LOGIC STARTS HERE ---
+  // --- ROUTING LOGIC ---
   useEffect(() => {
-    // 1. Check URL on Initial Load
     const handleInitialLoad = () => {
-      // Get path (e.g., "team" from "https://site.com/team")
-      // If path is empty (root "/"), default to 'home'
+      // Get path (remove leading slash)
       const path = window.location.pathname.substring(1) || 'home';
       
+      // 1. Check for Gallery Route (e.g. "events/rec-25/gallery")
+      if (path.includes('/gallery')) {
+        const parts = path.split('/');
+        // Format: events/[id]/gallery -> parts[1] is the ID
+        if (parts[1]) {
+          setCurrentEventId(parts[1]);
+          setCurrentPage('event-gallery');
+          return;
+        }
+      }
+
+      // 2. Check for Event Details Route (e.g. "events/rec-25")
+      else if (path.startsWith('events/')) {
+        const eventId = path.split('/')[1];
+        if (eventId) {
+          setCurrentEventId(eventId);
+          setCurrentPage('event-details');
+          return;
+        }
+      }
+
+      // 3. Normal Pages
       const validPages = ['home', 'events', 'about', 'team', 'blog', 'join'];
-      
       if (validPages.includes(path)) {
         setCurrentPage(path);
       }
     };
 
-    // 2. Handle Browser Back/Forward Buttons
-    const handlePopState = () => {
-      const path = window.location.pathname.substring(1) || 'home';
-      setCurrentPage(path);
-    };
-
-    // Run initial check
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', handleInitialLoad);
+    
+    // Run on first load
     handleInitialLoad();
 
-    // Listen for history changes (Back button)
-    window.addEventListener('popstate', handlePopState);
-
-    // Cleanup listener when app unmounts
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handleInitialLoad);
   }, []);
 
   const handleNavigate = (page: string) => {
-    setCurrentPage(page);
+    // 1. Gallery Navigation
+    if (page.includes('/gallery')) {
+      const parts = page.split('/');
+      if (parts[1]) {
+        setCurrentEventId(parts[1]);
+        setCurrentPage('event-gallery');
+        window.history.pushState({}, '', `/${page}`);
+      }
+    }
+    // 2. Event Details Navigation
+    else if (page.startsWith('events/')) {
+      const eventId = page.split('/')[1];
+      setCurrentEventId(eventId);
+      setCurrentPage('event-details');
+      window.history.pushState({}, '', `/${page}`);
+    } 
+    // 3. Normal Navigation
+    else {
+      setCurrentPage(page);
+      const url = page === 'home' ? '/' : `/${page}`;
+      window.history.pushState({}, '', url);
+    }
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // 3. Update URL without reloading the page
-    // If page is 'home', we use '/' otherwise '/pageName'
-    const url = page === 'home' ? '/' : `/${page}`;
-    window.history.pushState({}, '', url);
   };
-  // --- ROUTING LOGIC ENDS HERE ---
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'home':
-        return <HomePage onNavigate={handleNavigate} />;
-      case 'events':
-        return <EventsPage />;
-      case 'about':
-        return <AboutPage />; 
-      case 'team':
-        return <TeamPage />;
-      case 'blog':
-        return <BlogPage />;
-      case 'join':
-        return <JoinPage />;
-      default:
-        return <HomePage onNavigate={handleNavigate} />;
+      case 'home': return <HomePage onNavigate={handleNavigate} />;
+      case 'events': return <EventsPage />;
+      
+      // --- NEW PAGES ---
+      case 'event-details': 
+        return <EventDetailsPage eventId={currentEventId} onNavigate={handleNavigate} />;
+      case 'event-gallery': 
+        return <EventGalleryPage eventId={currentEventId} onNavigate={handleNavigate} />;
+      // ----------------
+
+      case 'about': return <AboutPage />; 
+      case 'team': return <TeamPage />;
+      case 'blog': return <BlogPage />;
+      case 'join': return <JoinPage />;
+      default: return <HomePage onNavigate={handleNavigate} />;
     }
   };
 
@@ -79,23 +113,29 @@ export default function App() {
       className="min-h-screen bg-white"
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+      {/* Hide Navigation on the immersive Gallery page */}
+      {currentPage !== 'event-gallery' && (
+        <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+      )}
       
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentPage}
+          key={currentPage + currentEventId} // Unique key ensures animation triggers when switching events
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          // Pushes content down to clear the Skyline Navbar
-          className="pt-6 md:pt-52" 
+          // Remove top padding only for the gallery page to make it full screen
+          className={currentPage === 'event-gallery' ? "" : "pt-6 md:pt-52"} 
         >
           {renderPage()}
         </motion.div>
       </AnimatePresence>
 
-      <Footer onNavigate={handleNavigate} />
+      {/* Hide Footer on the immersive Gallery page */}
+      {currentPage !== 'event-gallery' && (
+        <Footer onNavigate={handleNavigate} />
+      )}
     </div>
   );
 }
