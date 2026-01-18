@@ -20,9 +20,13 @@ export const eventHistory: Record<string, EventItem[]> = {
       image: "https://pec.ac.in/sites/default/files/events/reconnaissance-2025-cover.jpg",
       link: "/events/rec-25",
       gallery: [
-        "https://images.unsplash.com/photo-1581094794329-cd1096d9a5b5?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1517089152318-42ec560349c0?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800"
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3111-400x300.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3095-400x300.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3088-400x533.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3080-400x300.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3065-400x300.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3075-400x300.jpg"
+
       ]
     },
     {
@@ -34,9 +38,13 @@ export const eventHistory: Record<string, EventItem[]> = {
       image: "https://pec.ac.in/sites/default/files/events/cissc-2025-group.jpg",
       link: "/events/cissc-25",
       gallery: [
-        "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800"
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740146140966.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740327654689.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740634880310.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1739206879341-600x400.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1739206855411-600x450.jpg",
+        "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740634878095-600x400.jpg"
+
       ]
     },
     {
