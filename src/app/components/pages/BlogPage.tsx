@@ -8,13 +8,12 @@ interface Props {
 }
 
 export function BlogPage({ onNavigate }: Props) {
-  // Highlight the first post as "Featured"
   const featuredPost = blogsData[0];
   const otherPosts = blogsData.slice(1);
 
   return (
     <div className="min-h-screen pt-24 pb-20 px-4 bg-[#F5F7FA]">
-      <SEO title="Engineering Insights" description="Latest trends, research, and viral topics in Civil Engineering." />
+      <SEO title="Engineering Intel" description="Viral trends and deep dives into Civil Engineering technology." />
 
       <div className="max-w-7xl mx-auto">
         
@@ -31,7 +30,7 @@ export function BlogPage({ onNavigate }: Props) {
           </div>
         </div>
 
-        {/* Featured Post (Hero) */}
+        {/* Featured Post */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +60,7 @@ export function BlogPage({ onNavigate }: Props) {
           </div>
         </motion.div>
 
-        {/* Recent Posts Grid */}
+        {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {otherPosts.map((post, idx) => (
             <motion.div
@@ -99,7 +98,7 @@ export function BlogPage({ onNavigate }: Props) {
                 </p>
 
                 <div className="flex items-center text-[#00A3E0] font-bold text-sm group-hover:gap-3 gap-2 transition-all">
-                  READ ARTICLE <ArrowRight className="w-4 h-4" />
+                  READ BRIEFING <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
             </motion.div>
