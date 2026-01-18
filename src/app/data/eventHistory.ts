@@ -17,7 +17,7 @@ export const eventHistory: Record<string, EventItem[]> = {
       date: "April 21-23, 2025",
       category: "Flagship",
       description: "The annual technical fest hosted by ASCE PEC. Featuring 'Concrete Frisbee', 'Bridge It', and the 'Autocad Challenge'.",
-      image: "https://pec.ac.in/sites/default/files/events/reconnaissance-2025-cover.jpg",
+      image: "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3080-1024x768.jpg",
       link: "/events/rec-25",
       gallery: [
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/IMG_3111-400x300.jpg",
@@ -35,7 +35,7 @@ export const eventHistory: Record<string, EventItem[]> = {
       date: "Feb 7-9, 2025",
       category: "Conference",
       description: "ASCE International Conference on Challenges and Innovations for Sustainable Smart Cities, held at Hotel Novotel.",
-      image: "https://pec.ac.in/sites/default/files/events/cissc-2025-group.jpg",
+      image: "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740634878095.jpg",
       link: "/events/cissc-25",
       gallery: [
         "https://asceisnorthernregion.org/wp-content/uploads/2026/01/1740146140966.jpg",
