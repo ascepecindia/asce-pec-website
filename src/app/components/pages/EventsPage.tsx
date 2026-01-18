@@ -45,9 +45,8 @@ const upcomingEvents: UpcomingEvent[] = [
 
 // --- "LATEST INTEL" LINKS (Viral Bar Data) ---
 const latestDocs = [
-  { label: 'Symposium 2026 Brochure', url: '#' },
-  { label: 'Rulebook: Concrete Canoe', url: '#' },
-  { label: 'Sponsorship Proposal', url: '#' }
+  { label: 'Symposium 2026 Mailer 2', url: 'https://studentsymposium.asce.org/india/wp-content/uploads/sites/23/2026/01/ASCE-India-Symposium-Mailer-2-2026.pdf' },
+  { label: 'Symposium 2026 Flyer', url: 'https://drive.google.com/file/d/1_Jedn0c4YmL98c0XqWfswGNiVX1Ghu01/view?usp=sharing' },
 ];
 
 interface EventsPageProps {
