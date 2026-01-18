@@ -34,9 +34,28 @@ const socialStats = [
   }
 ];
 
+// --- UPDATED SPONSOR LIST WITH LOGOS ---
 const sponsors = [
-  "Larsen & Toubro", "DLF", "Ambuja Cement", "Hitbullseye", 
-  "UltraTech", "Jindal Steel", "Tata Projects", "HCC", "Gammon India"
+  { name: "Tata Tiscon", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_Tiscon_Logo.png" },
+  { name: "UltraTech", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/UltraTech_Cement_Logo.svg/1200px-UltraTech_Cement_Logo.svg.png" },
+  { name: "SBI", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/SBI-logo.svg/1200px-SBI-logo.svg.png" },
+  { name: "Amul", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Amul_official_logo.svg/1200px-Amul_official_logo.svg.png" },
+  { name: "British Council", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/British_Council_Logo.svg/2560px-British_Council_Logo.svg.png" },
+  { name: "Unacademy", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Unacademy_Logo.png/640px-Unacademy_Logo.png" },
+  { name: "Hitbullseye", logo: "https://www.hitbullseye.com/app_images/hitbullseye-logo.png" },
+  { name: "Abhibus", logo: "https://static.abhibus.com/assets/img/abhibus-logo.svg" },
+  { name: "JK Cement", logo: "https://www.jkcement.com/wp-content/uploads/2023/06/JK-Cement-Logo.png" },
+  { name: "Verka", logo: "https://verka.coop/wp-content/themes/verka/images/logo.png" },
+  { name: "Career Launcher", logo: "https://www.careerlauncher.com/images/cl-logo.svg" },
+  { name: "IMS", logo: "https://www.imsindia.com/wp-content/themes/ims/img/logo.png" },
+  { name: "The Zirk", logo: "https://thezirk.biz/wp-content/uploads/2021/09/logo.png" },
+  { name: "GMI Infra", logo: "https://www.gmiinfra.com/assets/img/logo.png" },
+  { name: "City Woofer", logo: "https://www.citywoofer.com/images/logo.png" },
+  { name: "Horizon Belmond", logo: "https://reconsultadvisory.com/wp-content/uploads/2023/05/Horizon-Belmond-Mohali-Logo.png" },
+  // Text fallbacks for local brands if logos aren't public
+  { name: "Rakhra Associates", logo: "" }, 
+  { name: "EVCA", logo: "" },
+  { name: "CIZ Plus", logo: "" }
 ];
 
 export function JoinPage() {
@@ -46,7 +65,6 @@ export function JoinPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-    // Reset after 3 seconds for demo
     setTimeout(() => { setIsSubmitted(false); setFormState({ name: '', email: '', subject: '', message: '' }) }, 3000);
   };
 
@@ -94,14 +112,12 @@ export function JoinPage() {
                 <p className="text-white/80 text-sm">Experience the engineering marvels and campus energy.</p>
               </div>
               
-              {/* Play Button Overlay */}
               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 cursor-pointer hover:scale-110 transition-transform">
                   <Play className="w-8 h-8 text-white fill-white" />
                 </div>
               </div>
 
-              {/* Placeholder Image (Replace with actual Thumbnail or Video) */}
               <img 
                 src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000" 
                 alt="Viral Video Thumbnail" 
@@ -122,23 +138,18 @@ export function JoinPage() {
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   className="bg-white p-4 rounded-2xl shadow-md border border-[#00539B]/10 flex items-center gap-4 group hover:shadow-lg transition-all relative overflow-hidden"
                 >
-                  {/* Hover Gradient Background */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                  
                   <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center text-white z-10 group-hover:scale-110 transition-transform`}>
                     <social.icon className="w-6 h-6" />
                   </div>
-                  
                   <div className="flex-1 z-10 group-hover:text-white transition-colors">
                     <h4 className="font-bold text-lg leading-none">{social.label}</h4>
                     <p className="text-sm opacity-70 font-mono">{social.handle}</p>
                   </div>
-
                   <div className="text-right z-10 group-hover:text-white">
                     <span className="block font-bold text-xl">{social.followers}</span>
                     <span className="text-xs opacity-70">Subscribers</span>
                   </div>
-                  
                   <ExternalLink className="w-5 h-5 text-[#00539B]/30 z-10 group-hover:text-white/50" />
                 </motion.a>
               ))}
@@ -152,7 +163,6 @@ export function JoinPage() {
             transition={{ delay: 0.3 }}
             className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#00539B]/10 relative overflow-hidden"
           >
-            {/* Background Decor */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A3E0]/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="mb-8">
@@ -234,18 +244,6 @@ export function JoinPage() {
                 </button>
               </form>
             )}
-
-            {/* Quick Contact Info */}
-            <div className="mt-8 pt-8 border-t border-[#00539B]/10 flex flex-col md:flex-row gap-6 justify-between text-sm text-[#00539B]/70">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#00A3E0]" />
-                <span>PEC Sector 12, Chandigarh</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#00A3E0]" />
-                <span>asce.pec.india@gmail.com</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -257,22 +255,25 @@ export function JoinPage() {
         </div>
         
         <div className="relative flex overflow-x-hidden group">
-          {/* Gradients to fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
           {/* The Scrolling Marquee */}
-          <div className="flex animate-marquee whitespace-nowrap">
-            {/* Repeat list twice for seamless loop */}
+          <div className="flex animate-marquee whitespace-nowrap items-center">
             {[...sponsors, ...sponsors].map((sponsor, index) => (
-              <div key={index} className="mx-12 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
-                {/* Logo Placeholder (Circle) */}
-                <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-slate-400" />
-                </div>
-                {/* Logo Text */}
-                <span className="text-2xl font-bold text-slate-400" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                  {sponsor}
+              <div key={index} className="mx-8 md:mx-12 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group shrink-0">
+                <img 
+                  src={sponsor.logo} 
+                  alt={sponsor.name} 
+                  className="h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'; 
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden'); 
+                  }}
+                />
+                {/* Text Backup if image fails */}
+                <span className="hidden text-xl font-bold text-slate-400 font-sans">
+                  {sponsor.name}
                 </span>
               </div>
             ))}
@@ -280,14 +281,13 @@ export function JoinPage() {
         </div>
       </div>
 
-      {/* Add Custom Animation Style for Marquee */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
       `}</style>
     </div>
