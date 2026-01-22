@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://asce-pec-website.vercel.app/sitemap.xml
+Sitemap: https://ascepec.vercel.app/sitemap.xml
